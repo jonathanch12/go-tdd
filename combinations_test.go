@@ -55,6 +55,12 @@ func TestCombine(t *testing.T) {
 			k:         5,
 			expectErr: true,
 		},
+		{
+			name:      "k < 0 (n=3, k=-1)",
+			n:         3,
+			k:         -1,
+			expectErr: true,
+		},
 	}
 
 	for _, tc := range testCases {
