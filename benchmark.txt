@@ -1,0 +1,9 @@
+goos: linux
+goarch: amd64
+pkg: combinations
+cpu: AMD EPYC 7763 64-Core Processor                
+BenchmarkCombine/n=5;_k=2-2         	 1941717	       646.7 ns/op
+BenchmarkCombine/n=6;_k=3-2         	 1000000	      1367 ns/op
+BenchmarkCombine/n=10;_k=5-2        	   66622	     17159 ns/op
+PASS
+ok  	combinations	4.602s

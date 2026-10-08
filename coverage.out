@@ -1,0 +1,15 @@
+mode: set
+combinations/combinations.go:6.2,7.1 2 1
+combinations/combinations.go:8.2,8.12 2 1
+combinations/combinations.go:9.3,10.1 1 1
+combinations/combinations.go:11.2,11.11 1 1
+combinations/combinations.go:12.3,13.1 1 1
+combinations/combinations.go:14.2,14.11 1 1
+combinations/combinations.go:15.3,16.1 1 1
+combinations/combinations.go:18.2,18.12 1 1
+combinations/combinations.go:19.3,20.1 1 1
+combinations/combinations.go:22.2,24.20 3 1
+combinations/combinations.go:28.2,28.23 1 1
+combinations/combinations.go:29.3,33.1 4 1
+combinations/combinations.go:35.2,35.49 1 1
+combinations/combinations.go:36.3,39.1 3 1
