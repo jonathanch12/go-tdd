@@ -7,10 +7,11 @@ import (
 
 func TestCombine(t *testing.T) {
 	testCases := []struct {
-		name     string
-		n        int
-		k        int
-		expected [][]int
+		name      string
+		n         int
+		k         int
+		expected  [][]int
+		expectErr bool
 	}{
 		{
 			name:     "Basic case (n=4, k=2)",
@@ -37,10 +38,10 @@ func TestCombine(t *testing.T) {
 			expected: nil,
 		},
 		{
-			name:     "Invalid input (n=0)",
-			n:        0,
-			k:        2,
-			expected: nil,
+			name:      "Invalid input (n=0)",
+			n:         0,
+			k:         2,
+			expectErr: true,
 		},
 		{
 			name:     "Larger case (n=5, k=3)",
@@ -49,16 +50,27 @@ func TestCombine(t *testing.T) {
 			expected: [][]int{{1, 2, 3}, {1, 2, 4}, {1, 2, 5}, {1, 3, 4}, {1, 3, 5}, {1, 4, 5}, {2, 3, 4}, {2, 3, 5}, {2, 4, 5}, {3, 4, 5}},
 		},
 		{
-			name:     "k greater than n (n=3, k=5)",
-			n:        3,
-			k:        5,
-			expected: nil,
+			name:      "k greater than n (n=3, k=5)",
+			n:         3,
+			k:         5,
+			expectErr: true,
 		},
 	}
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			result := combine(tc.n, tc.k)
+			result, err := combine(tc.n, tc.k)
+
+			if tc.expectErr {
+				if err == nil {
+					t.Errorf("n = %d; k = %d; expected an error but got none (result = %v)", tc.n, tc.k, result)
+				}
+				return
+			}
+
+			if err != nil {
+				t.Errorf("n = %d; k = %d; unexpected error: %v", tc.n, tc.k, err)
+			}
 			if !reflect.DeepEqual(result, tc.expected) {
 				t.Errorf("n = %d; k = %d; result = %v; expect %v", tc.n, tc.k, result, tc.expected)
 			}
