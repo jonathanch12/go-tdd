@@ -83,3 +83,22 @@ func TestCombine(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkCombine(b *testing.B) {
+	benchmarks := []struct {
+		name string
+		n    int
+		k    int
+	}{
+		{"n=5; k=2", 5, 2},
+		{"n=6; k=3", 6, 3},
+		{"n=10; k=5", 10, 5},
+	}
+	for _, bm := range benchmarks {
+		b.Run(bm.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				combine(bm.n, bm.k)
+			}
+		})
+	}
+}
