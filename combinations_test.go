@@ -48,6 +48,12 @@ func TestCombine(t *testing.T) {
 			k:        3,
 			expected: [][]int{{1, 2, 3}, {1, 2, 4}, {1, 2, 5}, {1, 3, 4}, {1, 3, 5}, {1, 4, 5}, {2, 3, 4}, {2, 3, 5}, {2, 4, 5}, {3, 4, 5}},
 		},
+		{
+			name:     "k greater than n (n=3, k=5)",
+			n:        3,
+			k:        5,
+			expected: nil,
+		},
 	}
 
 	for _, tc := range testCases {
